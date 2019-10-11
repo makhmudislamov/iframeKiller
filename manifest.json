@@ -3,6 +3,7 @@
     "version": "1.0",
     "description": "scans webpages for <iframe>",
     "permissions": [
+        "activeTab",
         "declarativeContent",
         "storage"
     ],
