@@ -1,0 +1,6 @@
+{
+    "name": "iframeKiller",
+    "version": "1.0",
+    "description": "scans webpages for <iframe>",
+    "manifest_version": 2
+}
