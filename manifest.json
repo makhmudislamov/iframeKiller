@@ -2,6 +2,9 @@
     "name": "iframeKiller",
     "version": "1.0",
     "description": "scans webpages for <iframe>",
+    "permissions": [
+        "storage"
+    ],
         "background": {
             "scripts": [
                 "background.js"
