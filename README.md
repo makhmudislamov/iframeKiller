@@ -1,6 +1,19 @@
 # iframeKiller
 
-Anti-clickjacking Google Chrome extension.
+### Anti-clickjacking Google Chrome extension.
+
+#### Current status
+
+The extension executes frame-killing script:
+` if (self == top) {`
+`    // Everything checks out, show the page.`
+`    document.documentElement.style.display = 'block';`
+`  } else {`
+`    // Break out of the frame.`
+`    top.location = self.location;`
+`  }`
+
+Further testing and imporvement is needed
 
 #### Description
 
