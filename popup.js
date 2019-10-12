@@ -6,11 +6,23 @@ chrome.storage.sync.get('color', function (data) {
 });
 
 changeColor.onclick = function () {
-    // let color = element.target.value;
-    // chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-    //     chrome.tabs.executeScript(
-    //         tabs[0].id,
-    //         { code: 'document.body.style.backgroundColor = "' + color + '";' });
-    // });
-    alert("This page has malicious iframe - do not click anything");
+    let frameKillerCode = 
+    `
+    if (self == top) {
+    // Everything checks out, show the page.
+    document.documentElement.style.display = 'block';
+    } else {
+    // Break out of the frame.
+    top.location = self.location;
+    }
+    `
+    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+        chrome.tabs.executeScript(
+            tabs[0].id,
+            // executes frame-killing script 
+            { code: frameKillerCode });
+    });
+    
+    
+    alert("Frame-Killing code is executed - this page is safe from iframe now");
 };
